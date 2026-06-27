@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teenage Mutant Ninja Turtles (MTG) · the set, curated by worth</title>
+<meta name="description" content="Teenage Mutant Ninja Turtles (TMT) — Magic's Universes Beyond crossover, every card curated by basic worth. Live market prices from Scryfall (TCGplayer-sourced USD), bucketed into worth tiers: chase, staples, role-players, bulk. Search, filter by rarity, toggle foils. A sphere of the ARENA (Magic: The Gathering) domain of UD0. David Lee Wise / Bridge-Burners LLC, ROOT0.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cards.scryfall.io" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Spectral:ital,wght@0,300;0,400;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#090d09;--panel:#0f150d;--panel2:#0b110a;--line:rgba(111,184,74,.16);
+    --lead:#8a9a7e;--lead-dim:#566050;--parch:#e6efdc;--parch-dim:#b6c4a4;--bone:#ecf6dc;
+    --horror:#6fb84a;--blood:#d2452f;--gold:#e0a83a;
+    --common:#aeb6a8;--uncommon:#5a9fd4;--rare:#e0a83a;--mythic:#a06ad0;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--parch);font-family:"Spectral",Georgia,serif;line-height:1.5;
+    -webkit-font-smoothing:antialiased;min-height:100vh;display:flex;justify-content:center;
+    background-image:radial-gradient(1000px 560px at 50% -14%,rgba(111,184,74,.15),transparent 60%),radial-gradient(700px 460px at 85% 12%,rgba(210,69,47,.08),transparent 60%)}
+  .wrap{max-width:880px;width:100%;padding:34px 22px 56px}
+  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--horror)}
+  h1{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:clamp(38px,8.5vw,60px);margin:6px 0 0;line-height:.97;letter-spacing:-.5px;color:var(--bone)}
+  h1 .gk{display:block;font-size:.28em;color:var(--lead);letter-spacing:.04em;margin-top:8px;font-style:italic}
+  .sub{font-style:italic;font-weight:300;color:var(--parch-dim);font-size:15.5px;margin:14px 0 0;max-width:66ch}
+  .sub b{font-style:normal;font-weight:400;color:var(--parch)} .sub .h{color:var(--horror)} .sub .g{color:var(--gold)}
+  code.k{font-family:"IBM Plex Mono",monospace;font-size:.9em;color:var(--gold)}
+
+  .summary{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 12px}
+  .stat{border:1px solid var(--line);border-radius:9px;background:var(--panel);padding:10px 14px;font-family:"IBM Plex Mono",monospace}
+  .stat .v{font-size:19px;font-weight:600;color:var(--bone)} .stat .l{font-size:9.5px;color:var(--lead);letter-spacing:.06em;text-transform:uppercase;margin-top:2px}
+  .stat .v .g{color:var(--gold)}
+
+  .controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:6px 0 14px}
+  input[type=text],select{background:var(--panel2);border:1px solid var(--line);border-radius:7px;color:var(--parch);
+    font-family:"IBM Plex Mono",monospace;font-size:11.5px;padding:8px 11px;outline:none}
+  input[type=text]{min-width:160px} input:focus,select:focus{border-color:var(--horror)}
+  button{cursor:pointer;background:var(--panel2);border:1px solid var(--line);border-radius:7px;color:var(--parch-dim);
+    font-family:"IBM Plex Mono",monospace;font-size:11px;padding:8px 11px;transition:.13s}
+  button:hover,button.on{border-color:var(--horror);color:var(--horror)}
+
+  .tier{margin-top:14px}
+  .tier-h{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    display:flex;align-items:center;gap:8px;padding:8px 0;border-top:1px solid var(--line);color:var(--parch)}
+  .tier-h .ct{margin-left:auto;color:var(--lead);font-size:10px}
+  .tier-h .dot{width:8px;height:8px;border-radius:50%}
+  .chase .dot{background:var(--blood)} .staples .dot{background:var(--gold)} .roles .dot{background:var(--horror)} .bulk .dot{background:var(--lead-dim)}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px}
+  .card{display:flex;gap:9px;align-items:center;border:1px solid var(--line);border-radius:8px;background:var(--panel);padding:7px 9px;transition:.12s}
+  .card:hover{border-color:rgba(217,184,90,.4)}
+  .card img{width:34px;height:47px;border-radius:3px;object-fit:cover;flex-shrink:0;background:#000;border:1px solid var(--line)}
+  .card .info{min-width:0;flex:1}
+  .card .nm{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--parch);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .card .meta{font-size:9px;color:var(--lead);font-family:"IBM Plex Mono",monospace;margin-top:2px}
+  .card .rar{font-weight:700}
+  .rar.common{color:var(--common)} .rar.uncommon{color:var(--uncommon)} .rar.rare{color:var(--rare)} .rar.mythic{color:var(--mythic)}
+  .card .worth{font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:600;color:var(--gold);flex-shrink:0;text-align:right}
+  .card .worth .f{display:block;font-size:8.5px;color:var(--lead-dim);font-weight:400}
+
+  .status{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--lead);padding:30px 0;text-align:center}
+  .status.err{color:var(--blood)}
+
+  .note{margin-top:30px;border-top:1px solid var(--line);padding-top:16px;font-family:"IBM Plex Mono",monospace;
+    font-size:11px;line-height:1.9;color:var(--lead-dim)}
+  .note b{color:var(--horror);font-weight:500} .note a{color:var(--gold)}
+  .foot{display:flex;justify-content:space-between;margin-top:22px;font-family:"IBM Plex Mono",monospace;
+    font-size:10.5px;color:var(--lead-dim);letter-spacing:.05em;flex-wrap:wrap;gap:6px}
+  .foot a{color:var(--horror);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">ARENA · Magic: The Gathering · the set, by worth</div>
+  <h1>Ninja Turtles<span class="gk">TMNT (TMT) — every card, curated by basic worth</span></h1>
+  <p class="sub">Heroes in a half shell as a Magic set — sorted by what each card is actually <b class="g">worth</b>. Prices are live <b class="h">market data from Scryfall</b> (the non-foil USD it mirrors from TCGplayer) — not guessed, not frozen — bucketed into worth tiers: <b>chase</b>, <b>staples</b>, <b>role-players</b>, and <b>bulk</b>. Search it, filter by rarity, flip to foil values. A sphere of the <b>ARENA</b> domain — one Magic set per sphere, each card's basic worth on the table. (Universes Beyond, March 2026 — cowabunga.)</p>
+
+  <div class="summary" id="summary"></div>
+  <div class="controls">
+    <input type="text" id="search" placeholder="search a card…">
+    <select id="rarity"><option value="">all rarities</option><option value="mythic">mythic</option><option value="rare">rare</option><option value="uncommon">uncommon</option><option value="common">common</option></select>
+    <button id="foil">show foil worth</button>
+    <button id="reload">↻ refresh prices</button>
+  </div>
+  <div id="out"><div class="status" id="status">summoning the set from Scryfall…</div></div>
+
+  <div class="note">
+    <b>what this is.</b> a live worth-curation of <b>Teenage Mutant Ninja Turtles</b> (TMT) — a sphere of the <b>ARENA</b> Magic: The Gathering domain. Card data and prices are fetched live from <a href="https://scryfall.com/">Scryfall</a> (which sources USD prices from TCGplayer); "basic worth" = the non-foil market price. The <b>curation</b> is the tiering and the read — chase / staple / role-player / bulk — applied to real numbers, not invented ones.
+    <br><b>honest line.</b> prices are a live snapshot and fluctuate daily; a card with no market listing shows <code class="k">—</code>. card names &amp; prices are facts; card images are hot-linked from Scryfall's CDN (their sanctioned non-commercial use) — Magic: The Gathering, card names and art are © Wizards of the Coast; this is an unaffiliated fan price-reference, not a marketplace.
+    <br><b>the domain.</b> give me a set, it becomes a sphere here — each card's basic worth on the table. One set, one sphere — give the domain a set, it lands here.
+  </div>
+
+  <div class="foot">
+    <span>TEENAGE MUTANT NINJA TURTLES · TMT · ARENA domain · prices live from Scryfall</span>
+    <span>David Lee Wise · Bridge-Burners LLC · <a href="https://davidwise01.github.io/ud0/">UD0 ↗</a></span>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var SET="tmt", cards=[], foilMode=false;
+  var TIERS=[
+    {key:"chase", name:"🩸 Chase", cls:"chase", min:5, max:Infinity},
+    {key:"staples", name:"Staples", cls:"staples", min:1, max:5},
+    {key:"roles", name:"Role-players", cls:"roles", min:0.25, max:1},
+    {key:"bulk", name:"Bulk", cls:"bulk", min:-1, max:0.25}
+  ];
+  function worth(c){ var p=c.prices||{}; var v=foilMode?p.usd_foil:p.usd; return v==null?null:parseFloat(v); }
+  function fmt(v){ return v==null?"—":"$"+v.toFixed(2); }
+
+  function fetchSet(){
+    cards=[]; document.getElementById('out').innerHTML='<div class="status" id="status">summoning the set from Scryfall…</div>';
+    var url="https://api.scryfall.com/cards/search?q=set:"+SET+"&unique=cards&order=usd&dir=desc";
+    function page(u){
+      fetch(u,{headers:{"Accept":"application/json"}}).then(function(r){ if(!r.ok)throw new Error("Scryfall "+r.status); return r.json(); })
+        .then(function(d){ cards=cards.concat(d.data||[]);
+          var st=document.getElementById('status'); if(st) st.textContent="found "+cards.length+" cards…";
+          if(d.has_more && d.next_page){ setTimeout(function(){ page(d.next_page); }, 110); }
+          else render();
+        }).catch(function(e){ var o=document.getElementById('out');
+          o.innerHTML='<div class="status err">could not reach Scryfall ('+esc(e.message)+'). it may be blocked here — try ↻ refresh, or open the live page. card data &amp; prices come from scryfall.com.</div>'; });
+    }
+    page(url);
+  }
+
+  function esc(s){return (s+'').replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+
+  function render(){
+    var q=document.getElementById('search').value.trim().toLowerCase();
+    var rf=document.getElementById('rarity').value;
+    var list=cards.filter(function(c){
+      if(rf && c.rarity!==rf) return false;
+      if(q && c.name.toLowerCase().indexOf(q)<0) return false;
+      return true;
+    });
+    list.sort(function(a,b){ var wa=worth(a), wb=worth(b); return (wb==null?-1:wb)-(wa==null?-1:wa); });
+
+    // summary (over the full set, not the filter)
+    var priced=cards.filter(function(c){return worth(c)!=null;});
+    var total=priced.reduce(function(s,c){return s+worth(c);},0);
+    var top=cards.slice().sort(function(a,b){return (worth(b)||0)-(worth(a)||0);})[0];
+    var chase=cards.filter(function(c){return (worth(c)||0)>=5;}).length;
+    document.getElementById('summary').innerHTML=
+      stat(cards.length,"cards in set")+
+      stat('<span class="g">$'+total.toFixed(0)+'</span>',"set value (sum, "+(foilMode?'foil':'non-foil')+")")+
+      stat('<span class="g">$'+(top?(worth(top)||0).toFixed(2):'0')+'</span>',top?("top: "+top.name.slice(0,18)):"top")+
+      stat(chase,"chase cards ($5+)");
+
+    // tiers
+    var html='';
+    TIERS.forEach(function(t){
+      var inT=list.filter(function(c){ var w=worth(c); var v=(w==null?0:w); return v>=t.min && v<t.max; });
+      if(!inT.length) return;
+      html+='<div class="tier '+t.cls+'"><div class="tier-h '+t.cls+'"><span class="dot"></span>'+t.name
+        +'<span class="ct">'+inT.length+' card'+(inT.length===1?'':'s')+'</span></div><div class="grid">'
+        + inT.map(cardHTML).join('') + '</div></div>';
+    });
+    document.getElementById('out').innerHTML = html || '<div class="status">no cards match.</div>';
+  }
+  function stat(v,l){ return '<div class="stat"><div class="v">'+v+'</div><div class="l">'+l+'</div></div>'; }
+  function cardHTML(c){
+    var img=(c.image_uris&&c.image_uris.small)|| (c.card_faces&&c.card_faces[0].image_uris&&c.card_faces[0].image_uris.small)||'';
+    var w=worth(c), p=c.prices||{};
+    var foil = foilMode? p.usd : p.usd_foil; // show the OTHER price small
+    var type=(c.type_line||'').split('//')[0].replace(/—.*/,'').trim();
+    return '<div class="card">'
+      +(img?'<img loading="lazy" src="'+img+'" alt="">':'<div style="width:34px;height:47px"></div>')
+      +'<div class="info"><div class="nm" title="'+esc(c.name)+'">'+esc(c.name)+'</div>'
+      +'<div class="meta"><span class="rar '+c.rarity+'">'+c.rarity.slice(0,1).toUpperCase()+'</span> · '+esc(type||'')+'</div></div>'
+      +'<div class="worth">'+fmt(w)+(foil?'<span class="f">'+(foilMode?'·nf ':'·f ')+'$'+parseFloat(foil).toFixed(2)+'</span>':'')+'</div></div>';
+  }
+
+  document.getElementById('search').addEventListener('input',render);
+  document.getElementById('rarity').addEventListener('change',render);
+  document.getElementById('foil').addEventListener('click',function(){ foilMode=!foilMode; this.classList.toggle('on',foilMode);
+    this.textContent=foilMode?'showing foil worth':'show foil worth'; render(); });
+  document.getElementById('reload').addEventListener('click',fetchSet);
+  fetchSet();
+})();
+</script>
+</body>
+</html>
