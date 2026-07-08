@@ -1,0 +1,9 @@
+ROOT0-DLW-CHAIN-v1
+index : 31
+slug  : teenage-mutant-ninja-turtles
+seal  : 9b02bb00619349c19228724a5537bcd35ec33f7b2c1a825f70a62fb4593b7c97
+prev  : 5ca913c97e765df58d63f6c802d97236344f38297dcd5db447e8739e4c80268f
+link  : 3e68883b26f3bd24b621b74b1be2e7f00f53db9d6c8cacc971222e77a0b0e719
+head  : 3447d3a0533aaf1e29a8bdc67a9774884fb3ae9dbc8a17064b7a008ca3c4ec90
+
+— the tether: link = sha256(index|slug|seal|prev). the chain head commits to the whole corpus.
